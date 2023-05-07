@@ -1,0 +1,36 @@
+{
+    "Employees": [
+        {
+            "name": "hindy",
+            "id": 0,
+            "address": {
+                "city": "",
+                "street": "",
+                "number": 0
+            },
+            "dateOfBirth": "12/12/1202",
+            "Tel": 0,
+            "CELL": 0,
+            "corona": {
+                "vaccinations": [
+                    "Null",
+                    "Null",
+                    "Null",
+                    "Null"
+                ],
+                "manufacturer": [
+                    "Null",
+                    "Null",
+                    "Null",
+                    "Null"
+                ],
+                "dateOfPositiveTest": "01/01/0101",
+                "recoveryDate": "010/01/0152"
+            }
+        },
+        {
+            "firstName": "",
+            "lastName": ""
+        }
+    ]
+}

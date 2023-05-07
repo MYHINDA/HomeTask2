@@ -1,0 +1,72 @@
+{ "employees": [
+  {
+    "_id": "6457a3cfdd9148f03a18926e",
+    "name": "name",
+    "id": 123,
+    "address": {
+      "city": "TLV",
+      "street": "begin",
+      "number": 111
+    },
+    "dateOfBirth": "01/01/2000",
+    "Tel": 8856,
+    "CELL": 5271,
+    "corona": {
+      "vaccinationsAndMnufacturers": [
+        [
+          "01/01/1000",
+          "aa"
+        ],
+        [
+          "02/02/2000",
+          "bb"
+        ],
+        [
+          "03/03/3000",
+          "cc"
+        ],
+        [
+          "04/04/4000",
+          "dd"
+        ]
+      ],
+      "dateOfPositiveTest": "01/02/3000",
+      "recoveryDate": "02/03/4000"
+    }
+  },
+  {
+    "_id": "6457a3cfdd9148f03a18926f",
+    "name": "name1",
+    "id": 456,
+    "address": {
+      "city": "TLV",
+      "street": "begin",
+      "number": 111
+    },
+    "dateOfBirth": "01/01/2000",
+    "Tel": 8856,
+    "CELL": 5271,
+    "corona": {
+      "vaccinationsAndMnufacturers": [
+        [
+          "01/01/1000",
+          "aa"
+        ],
+        [
+          "02/02/2000",
+          "bb"
+        ],
+        [
+          "03/03/3000",
+          "cc"
+        ],
+        [
+          "04/04/4000",
+          "dd"
+        ]
+      ],
+      "dateOfPositiveTest": "01/02/3000",
+      "recoveryDate": "02/03/4000"
+    }
+  }
+]}
