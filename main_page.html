@@ -1,0 +1,29 @@
+<html>
+   <body>
+
+      <script>
+        function addEmployee(){
+         document.location.href = "add_employee.html"
+        }
+        function getDataByName(){
+         document.location.href = "employee_name.html"
+
+      }
+      </script>
+
+      <div>
+            <form  action="http://localhost:5000/" method="get">
+               <input type="submit" value="Get Data" style="width:300px; height: 70px; border: 2px solid black; margin: 5px; background-color: aqua;" />
+            </form>
+            <form  action="http://localhost:5000/employee" method="get" >
+                <input type="search" name="name" placeholder="Search.."  style="width:300px; height: 70px; border: 2px solid black; margin: 5px; background-color: aqua;"/>
+                <input type="submit" value="Go" />
+            </form>
+            <!-- <input type="button" value="Get Employee" onclick="getDataByName()" style="width:300px; height: 70px; border: 2px solid black; margin: 5px; background-color: aqua;"/> -->
+            <br/>
+            <input type="button" value="Add Employee" onclick="addEmployee()"  style="width: 300px; height: 70px; border: 2px solid black; margin: 5px; background-color: pink;"/>
+            
+        </div>
+ 
+   </body>
+</html>

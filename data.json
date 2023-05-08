@@ -1,16 +1,16 @@
 {
     "Employees": [
         {
-            "name": "hindy",
-            "id": 0,
+            "name": "Israel Israeli",
+            "id": 12345789,
             "address": {
-                "city": "",
-                "street": "",
-                "number": 0
+                "city": "TLV",
+                "street": "Begin",
+                "number": 1
             },
-            "dateOfBirth": "12/12/1202",
-            "Tel": 0,
-            "CELL": 0,
+            "dateOfBirth": "01/01/2000",
+            "Tel": "031234567",
+            "Cell": "0500000000",
             "corona": {
                 "vaccinations": [
                     "Null",
@@ -24,13 +24,9 @@
                     "Null",
                     "Null"
                 ],
-                "dateOfPositiveTest": "01/01/0101",
-                "recoveryDate": "010/01/0152"
+                "dateOfPositiveTest": "Null",
+                "recoveryDate": "Null"
             }
-        },
-        {
-            "firstName": "",
-            "lastName": ""
         }
     ]
 }

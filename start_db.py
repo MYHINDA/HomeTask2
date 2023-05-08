@@ -2,7 +2,6 @@ from pymongo import MongoClient
 
 
 client = MongoClient(port=27017)
- 
 
 def start_db():
 
@@ -25,27 +24,16 @@ def start_db():
 
 start_db()
 
-def insertOneEmployee(employee):
+def insert_one_employee(employee):
         employees_documents.insert_one(employee)
 
 
-def getEmployeeFromDB(name):
+def get_employee_fromDB(name):
     # get Employee from db
     return employees_documents.find_one({"name":name})
 
 
-def getEmployees():
+def get_employees():
 
-    e = list(db.get_collection('Emploeeys').find({}))
-    
+    e = list(db.get_collection('Employees').find({}))
     return e
-
-
-# test to insert employees:
-
-# import requests
-
-# resp = requests.get( "https://jsonplaceholder.typicode.com/users", verify=False)
-# employees = resp.json()
-# for e in employees:
-#     employees_documents.insert_one(e)

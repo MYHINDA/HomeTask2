@@ -1,5 +1,5 @@
 import json
-from start_db import client, getEmployeeFromDB, insertOneEmployee, getEmployees
+from start_db import client, db, get_employee_fromDB, insert_one_employee, get_employees
 
 
 class Employee:
@@ -18,7 +18,8 @@ class Employee:
         self.corona = list(zip(corona["vaccinations"], corona["manufacturer"], strict=True))
         self.dateOfPositiveTest = dateOfPositiveTest
         self.recoveryDate = recoveryDate
-    
+
+
     def normelize(self):
         obj = {
             "name": self.name,
@@ -38,30 +39,27 @@ class Employee:
             }
         }
         return obj
-    
 
-    def addEmployee(self):
+
+    def add_employee(self):
         ob = self.normelize()
-        insertOneEmployee(ob)
+        insert_one_employee(ob)
     
 
-    def getEmployee(self, name):
-        return getEmployeeFromDB(name)
+    def get_employee(self, name):
+        return get_employee_fromDB(name)
 
-    def getEmployee(self): 
-        return getEmployees()
+
+    def get_employee(self): 
+        return get_employees()
     
-
 
 # import from json to db
-def importEmployees():
+def import_employees():
     
-    db = client["New_data"]
     collection = db["New_data"]
 
-    file_name = input("Enter file data name: ")
-    with open("./" + file_name + ".json", 'r') as f:
-
+    with open("data.json", 'r') as f:
         my_data = json.load(f)
         if isinstance(my_data, list):
             collection.insert_many(my_data)
@@ -70,46 +68,13 @@ def importEmployees():
 
 
 # export data from db to json
-def exportEmployees():
+def export_employees():
     employees = client.get_database('HMO').get_collection('Emploeeys').find()
+
     data = [e for e in employees]
-    fileName = "./exportData.json"
+    
+    fileName = "./export_data.json"
     with open(fileName, 'w', encoding='utf_8') as file:
         file.write("{ \"employees\": ")
         file.write(json.dumps(data, indent=2, default=str))
         file.write("}")
-
-
-
-
-
-
-
-
-
-corona = {"vaccinations":['01/01/1000', '02/02/2000',
-                          '03/03/3000', '04/04/4000'], "manufacturer":["aa", "bb", "cc", "dd"]}
-address = {
-    "city": "TLV",
-    "street": "begin",
-    "number": 111
-}
-
-e = Employee("name", 123, address, "01/01/2000", 8856, 5271,\
-             corona, '01/02/3000', '02/03/4000')
-e1 = Employee("name1", 456, address, "01/01/2000", 8856, 5271,
-             corona, '01/02/3000', '02/03/4000')
-e2 = Employee("name2", 789, address, "01/01/2000", 8856, 5271,
-              corona, '01/02/3000', '02/03/4000')
-
-e.addEmployee()
-e1.addEmployee()
-
-# em = e.getEmployee(e.name)
-# print(em)
-
-# exportEmployees()
-
-# importEmployees()
-
-# getEmployees()
