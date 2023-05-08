@@ -1,5 +1,4 @@
-from flask import Flask, jsonify, request
-import requests
+from flask import Flask, redirect, url_for, request
 import HMO
 from bson import json_util
 import json
@@ -12,22 +11,30 @@ app = Flask(__name__)
 @app.route('/', methods=['GET'])
 def get_employees():
     # return jsonify(HMO.getEmployees())
-    return json.loads(json_util.dumps(HMO.getEmployees()))
+    return json.loads(json_util.dumps(HMO.get_employees()))
 
 
 #Get 1 employee by his name
 @app.route('/employees/<string:name>', methods=['GET'])
 def get_employee(name):
-    return json.loads(json_util.dumps(HMO.getEmployeeFromDB(name)))
+    return json.loads(json_util.dumps(HMO.get_employee_fromDB(name)))
 
 
 #Add new employee
-@app.route('/employees', methods=['POST'])
-def add_employee():
-    # r  = request.get_json()
-    # resp = requests.post("https://127.0.0.1:5000", r, verify=False)
-    HMO.insertOneEmployee(HMO.e2)
-    return "created"
+
+@app.route('/success/<name>')
+def success(name):
+   return 'welcome %s' % name
 
 
-app.run()
+@app.route('/employee', methods=['POST'])
+def employee():
+    employee = {}
+    employee["id"] = request.form["id"]
+    employee["name"] = request.form['nm']
+    employee["tel"] = request.form['tel']
+    HMO.insert_one_employee(employee)
+
+    return redirect(url_for('success', name=employee["id"]))
+   
+app.run(debug=True)
