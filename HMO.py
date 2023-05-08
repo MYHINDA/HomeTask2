@@ -1,5 +1,5 @@
 import json
-from start_db import client, getEmployeeFromDB, insertOneEmployee
+from start_db import client, getEmployeeFromDB, insertOneEmployee, getEmployees
 
 
 class Employee:
@@ -48,6 +48,10 @@ class Employee:
     def getEmployee(self, name):
         return getEmployeeFromDB(name)
 
+    def getEmployee(self): 
+        return getEmployees()
+    
+
 
 # import from json to db
 def importEmployees():
@@ -72,7 +76,7 @@ def exportEmployees():
     fileName = "./exportData.json"
     with open(fileName, 'w', encoding='utf_8') as file:
         file.write("{ \"employees\": ")
-        file.write(((json.dumps(data, indent=2, default=str))))
+        file.write(json.dumps(data, indent=2, default=str))
         file.write("}")
 
 
@@ -95,6 +99,8 @@ e = Employee("name", 123, address, "01/01/2000", 8856, 5271,\
              corona, '01/02/3000', '02/03/4000')
 e1 = Employee("name1", 456, address, "01/01/2000", 8856, 5271,
              corona, '01/02/3000', '02/03/4000')
+e2 = Employee("name2", 789, address, "01/01/2000", 8856, 5271,
+              corona, '01/02/3000', '02/03/4000')
 
 e.addEmployee()
 e1.addEmployee()
@@ -105,3 +111,5 @@ e1.addEmployee()
 # exportEmployees()
 
 # importEmployees()
+
+# getEmployees()

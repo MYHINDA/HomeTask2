@@ -6,6 +6,7 @@ client = MongoClient(port=27017)
 
 def start_db():
 
+    global db
     db_name = "HMO"
     db = client[db_name]
 
@@ -31,6 +32,13 @@ def insertOneEmployee(employee):
 def getEmployeeFromDB(name):
     # get Employee from db
     return employees_documents.find_one({"name":name})
+
+
+def getEmployees():
+
+    e = list(db.get_collection('Emploeeys').find({}))
+    
+    return e
 
 
 # test to insert employees:
