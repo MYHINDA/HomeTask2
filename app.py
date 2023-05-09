@@ -3,6 +3,7 @@ import HMO
 from bson import json_util
 import json
 import background
+from markupsafe import escape
 
 app = Flask(__name__)
 
@@ -14,9 +15,10 @@ def get_employees():
 
 
 #Get 1 employee by his name
-@app.route('/employee/<string:name>', methods=['GET'])
+@app.route("/employee/<name>", methods=['GET'])
 def get_employee(name):
-    return json.loads(json_util.dumps(HMO.get_employee_fromDB(name)))
+    data = HMO.get_employee_fromDB(escape(name))
+    return json.loads(json_util.dumps(data))
 
 
 #Add new employee
@@ -30,9 +32,29 @@ def employee():
     employee = {}
     employee["id"] = request.form["id"]
     employee["name"] = request.form['nm']
+    employee["address"] = {
+        "city": request.form["city"],
+        "street":request.form["street"],
+        "number": request.form["number"]
+        }
+    employee["date"] = request.form['dateOfBirth']
     employee["tel"] = request.form['tel']
+    employee["cell"] = request.form['cell']
+    employee["corona"] = {
+        "vaccinationsAndMnufacturers":[
+            [request.form["v1"], request.form["m1"]],
+            [request.form["v2"], request.form["m2"]],
+            [request.form["v3"], request.form["m3"]],
+            [request.form["v4"], request.form["m4"]]
+        ],
+        "dateOfPositiveTest": request.form["positive"],
+        "recoveryDate": request.form["recovery"]
+    }
+    if request.form["avatar"]:
+        employee["image"] = request.form["avatar"]
+
     HMO.insert_one_employee(employee)
 
-    return redirect(url_for('success', name=employee["id"]))
+    return redirect(url_for('success', name=employee["name"]))
    
-app.run(debug=True)
+app.run()
