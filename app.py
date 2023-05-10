@@ -15,9 +15,13 @@ def get_employees():
 
 
 #Get 1 employee by his name
-@app.route("/employee/<name>", methods=['GET'])
-def get_employee(name):
+@app.route("/employeeName", methods=['POST'])
+def get_employee():
+    
+    name = request.form["name"]
+    
     data = HMO.get_employee_fromDB(escape(name))
+    
     return json.loads(json_util.dumps(data))
 
 
