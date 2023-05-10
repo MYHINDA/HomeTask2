@@ -17,8 +17,8 @@ After filling out the form, the information is sent to the server via a POST req
 ![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/58b2c4c5-4fc3-4018-8eb1-3cd6ce5bf333)
 
 After creating the new record, a success message appears on the screen with the employee's name
- ![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/f0fd602b-4767-4b0f-a60e-496da372e999)
 
+*welcome Israel Israeli*
  
 OS: Windows 10
 Workspace: vscode, localhost:5000
