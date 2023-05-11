@@ -16,20 +16,22 @@ app = Flask(__name__)
 def get_employees():
 
     data = json.loads(json_util.dumps(HMO.get_employees()))
-    data = json.dumps(data)
+    for d in data:
+        del d["_id"]
 
-    return json2html.convert(json=data)
+    return json2html.convert(json=json.dumps(data))
 
 
 #Get 1 employee by his name
 @app.route("/employeeName", methods=['POST'])
 def get_employee():
-    
     name = request.form["name"]
-    data = HMO.get_employee_fromDB(escape(name))
-    data = json.dumps(json.loads(json_util.dumps(data)))
+
+    data = json.loads(json_util.dumps(HMO.get_employee_fromDB(escape(name))))
     
-    return json2html.convert(json=data)
+    del data["_id"]
+    
+    return json2html.convert(json=json.dumps(data))
 
 
 #Add new employee
