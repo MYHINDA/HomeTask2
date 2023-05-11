@@ -40,11 +40,11 @@ def success(name):
    return 'welcome %s' % name
 
 
-@app.route('/employee', methods=['POST'])
+@app.route('/addEmployee', methods=['POST'])
 def employee():
     employee = {}
     employee["id"] = request.form["id"]
-    employee["name"] = request.form['nm']
+    employee["name"] = request.form['name']
     employee["address"] = {
         "city": request.form["city"],
         "street":request.form["street"],
@@ -63,8 +63,6 @@ def employee():
         "dateOfPositiveTest": request.form["positive"],
         "recoveryDate": request.form["recovery"]
     }
-    if request.form["avatar"]:
-        employee["image"] = request.form["avatar"]
 
     HMO.insert_one_employee(employee)
 
