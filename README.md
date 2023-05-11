@@ -11,7 +11,11 @@ In the first step, the system allows you to perform 3 different actions:
 ![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/8e4444b9-c549-45ad-ac7b-2b53a51b9323)
 
 When choosing the first option, a GET request is sent to the server, the server goes to the DB where all the data is stored and fetches it.
+![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/2fc6b29f-a79c-4249-9479-df29f4928bef)
+
 When choosing the second option, a POST request is sent with the search string, the server addresses the DB with the string and fetches the appropriate information from there. The reason that the request is sent in the POST method and not GET is, among other things, the security of the information, when sending a GET request, the information is saved in the URL and remains exposed.
+![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/14b197a4-a059-4b11-afcc-8be35750ffdf)
+
 When choosing the third option, the system makes a reference to a form document, where the details must be filled in, some details are mandatory (such as name, ID number, phone, etc.) and there are details that are not mandatory (such as corona vaccinations, photo, etc.)
 After filling out the form, the information is sent to the server via a POST request, the server processes the request and creates a new record in the DB with all the appropriate details.
 
