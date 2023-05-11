@@ -21,7 +21,7 @@ The reason that the request is sent in the POST method and not GET is, among oth
 When choosing the third option, the system makes a reference to a form document, where the details must be filled in, some details are mandatory (such as name, ID number, phone, etc.) and there are details that are not mandatory (such as corona vaccinations, photo, etc.)
 After filling out the form, the information is sent to the server via a POST request, the server processes the request and creates a new record in the DB with all the appropriate details.
 
-![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/58b2c4c5-4fc3-4018-8eb1-3cd6ce5bf333)
+![image](https://github.com/MYHINDA/HomeTask2/assets/40015918/91bd9f9a-f8ec-429a-85ec-b0ee0f3d8abf)
 
 After creating the new record, a success message appears on the screen with the employee's name
 
