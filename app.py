@@ -2,19 +2,23 @@ from flask import Flask, redirect, url_for, request
 from bson import json_util
 import json
 from markupsafe import escape
+from json2html import *
 
 
 import HMO
 import background
-
+ 
 
 app = Flask(__name__)
 
 # get employees
 @app.route('/', methods=['GET'])
 def get_employees():
-    # return jsonify(HMO.getEmployees())
-    return json.loads(json_util.dumps(HMO.get_employees()))
+
+    data = json.loads(json_util.dumps(HMO.get_employees()))
+    data = json.dumps(data)
+
+    return json2html.convert(json=data)
 
 
 #Get 1 employee by his name
@@ -22,7 +26,6 @@ def get_employees():
 def get_employee():
     
     name = request.form["name"]
-    
     data = HMO.get_employee_fromDB(escape(name))
     
     return json.loads(json_util.dumps(data))
