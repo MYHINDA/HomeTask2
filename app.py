@@ -1,9 +1,12 @@
 from flask import Flask, redirect, url_for, request
-import HMO
 from bson import json_util
 import json
-import background
 from markupsafe import escape
+
+
+import HMO
+import background
+
 
 app = Flask(__name__)
 
