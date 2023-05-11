@@ -27,8 +27,9 @@ def get_employee():
     
     name = request.form["name"]
     data = HMO.get_employee_fromDB(escape(name))
+    data = json.dumps(json.loads(json_util.dumps(data)))
     
-    return json.loads(json_util.dumps(data))
+    return json2html.convert(json=data)
 
 
 #Add new employee
