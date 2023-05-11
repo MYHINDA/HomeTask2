@@ -2,6 +2,7 @@
 HMO = Health maintenance organization
 This is a system for managing a health insurance fund during the Corona period.
 The system holds the data of the insured and employees, personal details and corona information for each employee.
+we start with MainPage.html page
 In the first step, the system allows you to perform 3 different actions:
 1. Get the data of all users
 2. Get user data by name
